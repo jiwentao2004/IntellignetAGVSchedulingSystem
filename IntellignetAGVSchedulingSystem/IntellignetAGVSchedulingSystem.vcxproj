@@ -124,15 +124,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AString.cpp" />
     <ClCompile Include="Include\json\json_reader.cpp" />
     <ClCompile Include="Include\json\json_value.cpp" />
     <ClCompile Include="Include\json\json_writer.cpp" />
     <ClCompile Include="Src\AGVBase.cpp" />
     <ClCompile Include="Src\AGVType.cpp" />
+    <ClCompile Include="Src\AString.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AString.h" />
     <ClInclude Include="Include\json\allocator.h" />
     <ClInclude Include="Include\json\assertions.h" />
     <ClInclude Include="Include\json\autolink.h" />
@@ -148,6 +147,7 @@
     <ClInclude Include="Src\AGVBase.h" />
     <ClInclude Include="Src\AGVEnum.h" />
     <ClInclude Include="Src\AGVType.h" />
+    <ClInclude Include="Src\AString.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Include\json\json_valueiterator.inl" />

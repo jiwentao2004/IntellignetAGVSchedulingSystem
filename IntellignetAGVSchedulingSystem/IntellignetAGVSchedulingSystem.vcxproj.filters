@@ -36,7 +36,7 @@
     <ClCompile Include="Include\json\json_writer.cpp">
       <Filter>源文件\Json</Filter>
     </ClCompile>
-    <ClCompile Include="AString.cpp">
+    <ClCompile Include="Src\AString.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -86,7 +86,7 @@
     <ClInclude Include="Include\json\version.h">
       <Filter>头文件\Json</Filter>
     </ClInclude>
-    <ClInclude Include="AString.h">
+    <ClInclude Include="Src\AString.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
