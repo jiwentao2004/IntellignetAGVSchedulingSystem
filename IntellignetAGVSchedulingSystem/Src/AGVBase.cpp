@@ -1,6 +1,19 @@
 #include "AGVBase.h"
+#include "../Include/json/json.h"
+
+#include <fstream>
+#include <iostream>
+#include <sstream>
+#include <string>
+#include <codecvt>
 
 #ifdef _AGV_BASE_H
+
+using WCHAR_GBK		= codecvt_byname<wchar_t, char, mbstate_t>;
+using WCHAR_UTF8	= codecvt_utf8<wchar_t>;
+
+// linux下为"zh_CN.GBK"
+#define GBK_NAME ".936"
 
 AGVBase::AGVBase()
 {
@@ -64,13 +77,14 @@ void AGVBase::InitializeAttribut(const unsigned short usNo, const AGVType & Type
 	m_usEndLocation = 0;
 	m_chCurSpeed = 0;
 	m_byBattery = 0;
-	m_byLifter = AGVLifter::Down;
-	m_byRoller = AGVRoller::Stop;
+	m_byLifter = AGVLifter::Lifter_Down;
+	m_byRoller = AGVRoller::Roller_Stop;
 	m_usArmAction = 0;
-	m_byArmStatus = AGVArmStatus::None;
-	m_byStatus = AGVStatus::Wait;
-	m_byCargo = 0;
-	m_chError = AGVError::None;
+	m_byArmStatus = AGVArmStatus::Arm_Status_None;
+	m_byStatus = AGVStatus::Status_Wait;
+	m_byCargo = AGVCargo::Cargo_None;
+	m_chError = AGVError::Error_None;
+	m_byMode = AGVMode::Mode_Offline;
 
 	return;
 }
@@ -86,6 +100,103 @@ void AGVBase::InitializeAttribut(const unsigned short usNo, const AGVType & Type
 	m_usCurLocation = usCurLocation;
 	m_usEndLocation = usEndLocation;
 
+	return;
+}
+
+void AGVBase::LoadActNameFile(string strPath)
+{
+	/*!
+	 * @brief 读取配置文件中机械臂动作的名称
+	 * 默认文件位置为./Config/Arm.json
+	 * @date 2019-09-02
+	*/
+
+	ifstream fin;
+	fin.open(strPath);
+	if (!fin)
+	{
+		// open file failed
+		throw("Loading arm action name error:Open arm config file failed!");
+		return;
+	}
+
+	ostringstream ostring;
+	ostring << fin.rdbuf();
+	fin.close();
+
+	string strContext = ostring.str();
+	// CharReaderBuilder
+	Json::CharReaderBuilder builder;
+	Json::CharReader* JsonReader(builder.newCharReader());
+	Json::Value JsonRoot;
+
+	JSONCPP_STRING errs;
+	const char* pstr = strContext.c_str();
+
+	if (!JsonReader->parse(pstr,pstr+strlen(pstr),&JsonRoot,&errs))
+	{
+		// read json string failed
+		throw("Loading arm action name error:" + errs);
+		return;
+	}
+
+	// 机械臂名称Json对象组
+	Json::Value ArmArr = JsonRoot["Arm"];
+
+	for (size_t k = 0; k < ArmArr.size(); ++k)
+	{
+		// 机械臂名称
+		Json::Value Arm = ArmArr[k];
+
+		// AGV编号
+		int no = Json_ReadInt(Arm["No"]);
+
+		// 编号与AGV不符或不是全局配置则不使用此配置信息
+		if (no != m_usNo && no != 0)
+		{
+			continue;
+		}
+
+		for (int i = 1; i < 0xFF; ++i)
+		{
+			ostringstream ostrName;
+			string strAction = "";
+
+			ostrName << i;
+
+			Json::Value action = Arm.get(ostrName.str(),Json::Value());
+
+			if (action.isNull())
+			{
+				continue;
+			}
+
+			// UTF-8 转 ACSII
+			strAction = action.asString();
+
+			if (strAction.empty())
+			{
+				continue;
+			}
+
+			// gbk与unicode之间的转换器
+			wstring_convert<WCHAR_GBK>  cvtGBK(new WCHAR_GBK(GBK_NAME));
+			// utf8与unicode之间的转换器
+			wstring_convert<WCHAR_UTF8> cvtUTF8;
+			// 从utf8转换为unicode
+			wstring ustr = cvtUTF8.from_bytes(strAction);
+			// 从unicode转换为gbk
+			strAction = cvtGBK.to_bytes(ustr);
+
+			// 当编号的值与AGV值相等时 或 编号的值为全局标识时 储存动作名称
+			if (no == m_usNo || (no == 0 && m_strActNameArr[i].empty() == false))
+			{
+				m_strActNameArr[i] = strAction;
+			}
+		}
+	}
+	
+	delete JsonReader;
 	return;
 }
 
@@ -326,7 +437,7 @@ void AGVBase::UpdateError(const char chError)
 	 * 则不修改记录的信息
 	 * @date 2019-08-30
 	*/
-	if (chError == AGVError::None && m_chError < AGVError::None)
+	if (chError == AGVError::Error_None && m_chError < AGVError::Error_None)
 	{
 		return;
 	}
@@ -501,7 +612,7 @@ void AGVBase::SetError(const char chError)
 	 * 则不修改记录的信息
 	 * @date 2019-08-30
 	*/
-	if (m_chError > AGVError::None)
+	if (m_chError > AGVError::Error_None)
 	{
 		return;
 	}

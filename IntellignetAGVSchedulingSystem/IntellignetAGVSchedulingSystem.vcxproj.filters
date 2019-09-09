@@ -9,6 +9,12 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
+    <Filter Include="头文件\Json">
+      <UniqueIdentifier>{a68cc116-504d-478c-9d33-519754081ef9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Json">
+      <UniqueIdentifier>{e68ea745-7634-458d-a58d-af0686ebbf3a}</UniqueIdentifier>
+    </Filter>
     <Filter Include="资源文件">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
@@ -19,6 +25,18 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Src\AGVType.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Include\json\json_reader.cpp">
+      <Filter>源文件\Json</Filter>
+    </ClCompile>
+    <ClCompile Include="Include\json\json_value.cpp">
+      <Filter>源文件\Json</Filter>
+    </ClCompile>
+    <ClCompile Include="Include\json\json_writer.cpp">
+      <Filter>源文件\Json</Filter>
+    </ClCompile>
+    <ClCompile Include="AString.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -32,8 +50,49 @@
     <ClInclude Include="Src\AGVType.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Include\json\writer.h">
+      <Filter>头文件\Json</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\json\allocator.h">
+      <Filter>头文件\Json</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\json\assertions.h">
+      <Filter>头文件\Json</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\json\autolink.h">
+      <Filter>头文件\Json</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\json\config.h">
+      <Filter>头文件\Json</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\json\features.h">
+      <Filter>头文件\Json</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\json\forwards.h">
+      <Filter>头文件\Json</Filter>
+    </ClInclude>
     <ClInclude Include="Include\json\json.h">
+      <Filter>头文件\Json</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\json\json_tool.h">
+      <Filter>头文件\Json</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\json\reader.h">
+      <Filter>头文件\Json</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\json\value.h">
+      <Filter>头文件\Json</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\json\version.h">
+      <Filter>头文件\Json</Filter>
+    </ClInclude>
+    <ClInclude Include="AString.h">
       <Filter>头文件</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Include\json\json_valueiterator.inl">
+      <Filter>头文件\Json</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -135,6 +135,12 @@ private:
 	 * @date 2019-08-30
 	*/
 	unsigned short m_usOldEndLocation;
+
+	/*!
+	 * @brief 描述AGV运行模式的标识
+	 * @date 2019-09-03
+	*/
+	unsigned char m_byMode;
 #pragma endregion
 
 #pragma region AGV Action Function Code
@@ -266,13 +272,6 @@ public:
 	 * @param unsigned short AGV终点位置信息
 	*/
 	void InitializeAttribut(const unsigned short usNo,const AGVType& type, const unsigned short usCurLocation, const unsigned short usEndLocation = 0);
-
-	/*!
-	 * @brief 加载AGV机械臂动作名称
-	 * @date 2019-08-30
-	 * @param string AGV动作文件路径
-	*/
-	void LoadActName(string strPath);
 
 	/*!
 	 * @brief 加载AGV机械臂动作名称

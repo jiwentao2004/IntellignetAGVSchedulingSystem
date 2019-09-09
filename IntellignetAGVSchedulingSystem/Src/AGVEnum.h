@@ -14,10 +14,10 @@
 enum AGVCargo
 {
 	// 空载
-	None,
+	Cargo_None,
 
 	// 满载
-	Full = 0xFF,
+	Cargo_Full = 0xFF,
 };
 
 /*!
@@ -31,28 +31,28 @@ enum AGVCargo
 enum AGVError
 {
 	// 无异常
-	None,
+	Error_None,
 
 	// 因网络异常,无法发送数据造成的异常
-	Linkbreak = -1,
+	Error_Linkbreak = -1,
 
 	// 升降杆长时间未升到位或未降下引起的异常
-	LifterError = -2,
+	Error_LifterError = -2,
 
 	// 辊筒或链条长时间未接到货物或未将货物卸下引起的异常
-	RollerError = -3,
+	Error_RollerError = -3,
 
 	// 机械臂动作长时间未执行完成引起的异常
-	ArmError = -4,
+	Error_ArmError = -4,
 
 	// 因长时间无法找到磁条的脱磁异常
-	Miss = 1,
+	Error_Miss = 1,
 
 	// 因碰撞引起的AGV停止,需要人位处理
-	Crash,
+	Error_Crash,
 
 	// 因检测路线上的物体,无法继续移动
-	Obs,
+	Error_Obs,
 };
 
 /*!
@@ -62,28 +62,46 @@ enum AGVError
 enum AGVStatus
 {
 	// 待机
-	Wait,
-
-	// 停止
-	Stop,
+	Status_Wait,
 
 	// 运行
-	Run,
+	Status_Run,
+
+	// 停止
+	Status_Stop,
 
 	// 急停
-	Scream,
+	Status_Scream,
 
 	// 寻磁
-	Find,
+	Status_Find,
 
 	// 非接触避障减速
-	ObsDown,
+	Status_ObsDown,
 
 	// 交通管制停止
-	Traffic,
+	Status_Traffic,
 
 	// 休眠 2019-08-30
-	Sleep,
+	Status_Sleep,
+
+	// 充电中 2019-09-03
+	Status_Charging,
+
+	// 远程急停 2019-09-03
+	Status_RemoteScream,
+
+	// 全线急停 2019-09-03
+	Status_AllScream,
+
+	// 加速 2019-09-03
+	Status_SpeedUp,
+
+	// 减速 2019-09-03
+	Status_SpeedDown,
+
+	// 暂停 2019-09-03
+	Status_Pause,
 };
 
 /*!
@@ -93,13 +111,13 @@ enum AGVStatus
 enum AGVLifter
 {
 	// 落下
-	Down,
+	Lifter_Down,
 	// 下落中
-	GoingDown,
+	Lifter_GoingDown,
 	// 升起中
-	GoingUp,
+	Lifter_GoingUp,
 	// 升起
-	Up,
+	Lifter_Up,
 };
 
 /*!
@@ -109,11 +127,11 @@ enum AGVLifter
 enum AGVRoller
 {
 	// 停止
-	Stop,
+	Roller_Stop,
 	// 正转中
-	Positive,
+	Roller_Positive,
 	// 反转中
-	Negative,
+	Roller_Negative,
 };
 
 /*!
@@ -123,11 +141,11 @@ enum AGVRoller
 enum AGVArmStatus
 {
 	// 未执行
-	None,
+	Arm_Status_None,
 	// 执行中
-	Execute,
+	Arm_Status_Execute,
 	// 完成
-	Done,
+	Arm_Status_Done,
 };
 
 
@@ -138,11 +156,11 @@ enum AGVArmStatus
 enum AGVLifterControl
 {
 	// 停止
-	Stop,
+	Lifter_Ctrl_Stop,
 	// 上升开始
-	Up,
+	Lifter_Ctrl_Up,
 	// 下降开始
-	Down,
+	Lifter_Ctrl_Down,
 };
 
 /*!
@@ -152,9 +170,21 @@ enum AGVLifterControl
 enum AGVRollerControl
 {
 	// 停止
-	Stop,
+	Roller_Ctrl_Stop,
 	// 正转开始
-	Positive,
+	Roller_Ctrl_Positive,
 	// 反转开始
-	Negative,
+	Roller_Ctrl_Negative,
+};
+
+/*!
+ * @brief 描述AGV模式的标识枚举
+ * @date 2019-09-03
+*/
+enum AGVMode
+{
+	// 离线
+	Mode_Offline,
+	// 在线
+	Mode_Online,
 };

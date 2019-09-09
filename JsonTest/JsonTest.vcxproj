@@ -20,8 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{EE268C79-2B4B-4E8D-8489-0742A45C534F}</ProjectGuid>
-    <RootNamespace>IntellignetAGVSchedulingSystem</RootNamespace>
+    <ProjectGuid>{3A028D15-E8D9-449E-9793-D5C592F28A6D}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>JsonTest</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -36,20 +37,20 @@
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -69,88 +70,108 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>Default</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AString.cpp" />
-    <ClCompile Include="Include\json\json_reader.cpp" />
-    <ClCompile Include="Include\json\json_value.cpp" />
-    <ClCompile Include="Include\json\json_writer.cpp" />
-    <ClCompile Include="Src\AGVBase.cpp" />
-    <ClCompile Include="Src\AGVType.cpp" />
+    <ClCompile Include="..\IntellignetAGVSchedulingSystem\Include\json\json_reader.cpp" />
+    <ClCompile Include="..\IntellignetAGVSchedulingSystem\Include\json\json_value.cpp" />
+    <ClCompile Include="..\IntellignetAGVSchedulingSystem\Include\json\json_writer.cpp" />
+    <ClCompile Include="JsonTest.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AString.h" />
-    <ClInclude Include="Include\json\allocator.h" />
-    <ClInclude Include="Include\json\assertions.h" />
-    <ClInclude Include="Include\json\autolink.h" />
-    <ClInclude Include="Include\json\config.h" />
-    <ClInclude Include="Include\json\features.h" />
-    <ClInclude Include="Include\json\forwards.h" />
-    <ClInclude Include="Include\json\json.h" />
-    <ClInclude Include="Include\json\json_tool.h" />
-    <ClInclude Include="Include\json\reader.h" />
-    <ClInclude Include="Include\json\value.h" />
-    <ClInclude Include="Include\json\version.h" />
-    <ClInclude Include="Include\json\writer.h" />
-    <ClInclude Include="Src\AGVBase.h" />
-    <ClInclude Include="Src\AGVEnum.h" />
-    <ClInclude Include="Src\AGVType.h" />
+    <ClInclude Include="..\IntellignetAGVSchedulingSystem\Include\json\allocator.h" />
+    <ClInclude Include="..\IntellignetAGVSchedulingSystem\Include\json\assertions.h" />
+    <ClInclude Include="..\IntellignetAGVSchedulingSystem\Include\json\autolink.h" />
+    <ClInclude Include="..\IntellignetAGVSchedulingSystem\Include\json\config.h" />
+    <ClInclude Include="..\IntellignetAGVSchedulingSystem\Include\json\features.h" />
+    <ClInclude Include="..\IntellignetAGVSchedulingSystem\Include\json\forwards.h" />
+    <ClInclude Include="..\IntellignetAGVSchedulingSystem\Include\json\json.h" />
+    <ClInclude Include="..\IntellignetAGVSchedulingSystem\Include\json\json_tool.h" />
+    <ClInclude Include="..\IntellignetAGVSchedulingSystem\Include\json\reader.h" />
+    <ClInclude Include="..\IntellignetAGVSchedulingSystem\Include\json\value.h" />
+    <ClInclude Include="..\IntellignetAGVSchedulingSystem\Include\json\version.h" />
+    <ClInclude Include="..\IntellignetAGVSchedulingSystem\Include\json\writer.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Include\json\json_valueiterator.inl" />
+    <None Include="..\IntellignetAGVSchedulingSystem\Include\json\json_valueiterator.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
