@@ -30,7 +30,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -154,7 +154,9 @@
     <ClCompile Include="..\IntellignetAGVSchedulingSystem\Include\json\json_reader.cpp" />
     <ClCompile Include="..\IntellignetAGVSchedulingSystem\Include\json\json_value.cpp" />
     <ClCompile Include="..\IntellignetAGVSchedulingSystem\Include\json\json_writer.cpp" />
+    <ClCompile Include="..\IntellignetAGVSchedulingSystem\Src\AString.cpp" />
     <ClCompile Include="JsonTest.cpp" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\IntellignetAGVSchedulingSystem\Include\json\allocator.h" />
@@ -169,6 +171,7 @@
     <ClInclude Include="..\IntellignetAGVSchedulingSystem\Include\json\value.h" />
     <ClInclude Include="..\IntellignetAGVSchedulingSystem\Include\json\version.h" />
     <ClInclude Include="..\IntellignetAGVSchedulingSystem\Include\json\writer.h" />
+    <ClInclude Include="..\IntellignetAGVSchedulingSystem\Src\AString.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\IntellignetAGVSchedulingSystem\Include\json\json_valueiterator.inl" />

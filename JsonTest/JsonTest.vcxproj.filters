@@ -27,6 +27,12 @@
     <ClCompile Include="..\IntellignetAGVSchedulingSystem\Include\json\json_writer.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\IntellignetAGVSchedulingSystem\Src\AString.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\IntellignetAGVSchedulingSystem\Include\json\allocator.h">
@@ -63,6 +69,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="..\IntellignetAGVSchedulingSystem\Include\json\writer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\IntellignetAGVSchedulingSystem\Src\AString.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

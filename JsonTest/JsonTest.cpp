@@ -12,6 +12,7 @@ using WCHAR_UTF8	= codecvt_utf8<wchar_t>;
 // linux下为"zh_CN.GBK"
 #define GBK_NAME ".936"
 
+/*
 int main()
 {
 	ifstream fin;
@@ -98,7 +99,7 @@ int main()
 
 	delete JsonReader;
 }
-
+*/
 // 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单
 // 调试程序: F5 或调试 >“开始调试”菜单
 

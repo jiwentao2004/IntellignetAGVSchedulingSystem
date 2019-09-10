@@ -19,6 +19,8 @@ using namespace std;
 /*!
  * @class AString
  * @brief 对wstring对象进行扩充，补充常用的功能以及函数
+ * @date 2019-09-09
+ * @author FanKaiyu
 */
 class AString:
 	public wstring
@@ -72,13 +74,22 @@ public:
 	*/
 	bool toFile(const AString);
 
+	/*！
+	 * @brief  写入至文件日志
+	 * @date 2019-09-09
+	 * @param AString 文件目录
+	 * @return bool 写入成功返回true,否则返回false
+	*/
+	bool toLogFile(const AString);
+
 	/*!
 	 * @brief 从文件中读取内容
 	 * @date 2019-09-09
 	 * @param AStrig 文件目录
-	 * @return bool 读取成功返回true,否则返回false
+	 * @param const char* 编码格式
+	 * @return AString 读取成功返回读取的字符串，否则返回空字符串
 	*/
-	bool FromFile(const AString);
+	AString& FromFile(const AString, const char* encode = Encode_UTF8);
 
 	/*!
 	 * @brief 格式化字符串
@@ -95,11 +106,5 @@ public:
 	 * @return Json::Value 返回JSON对象
 	*/
 	Json::Value toJson() const;
-
-	/*!
-	 * @brief 转换为LPCTSTR字符串
-	 * @date 2019-09-09
-	*/
-	LPCTSTR toLPCTSTR() const;
 };
 
