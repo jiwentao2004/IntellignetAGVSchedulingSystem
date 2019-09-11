@@ -22,8 +22,7 @@ using namespace std;
  * @date 2019-09-09
  * @author FanKaiyu
 */
-class AString:
-	public wstring
+class AString
 {
 public:
 	AString();
@@ -32,6 +31,9 @@ public:
 	AString(const string&, const char* encode = Encode_ACSII);
 	AString(const wstring&);
 	~AString();
+
+private:
+	wstring m_wstr;
 
 public:
 	/*!
@@ -59,6 +61,8 @@ public:
 	 * @param const char* 编码格式
 	*/
 	AString& append(const string& _Right, const char* encode = Encode_ACSII);
+	AString& append(const wstring& _Right);
+	AString& append(const AString& _Right);
 
 	/*!
 	 * @brief 打印至控制台
@@ -95,9 +99,9 @@ public:
 	 * @brief 格式化字符串
 	 * @date 2019-09-09
 	 * @param const char* 字符串格式化样式
-	 * @param ...	需要格式化的参数
+	 * @param va_list argv	需要格式化的参数
 	*/
-	AString& Format(const char* format,...);
+	AString& Format(const char* format, ...);
 	AString& Format(const wchar_t* format, ...);
 
 	/*!
@@ -106,5 +110,53 @@ public:
 	 * @return Json::Value 返回JSON对象
 	*/
 	Json::Value toJson() const;
+
+	/*!
+	 * @brief 清空字符串
+	 * @date 2019-09-11
+	*/
+	void Clear();
+
+	/*!
+	 * @brief 字符串是否为空
+	 * @date 2019-09-11
+	 * @return 为空返回true,否则返回false
+	*/
+	bool Empty();
+
+	/*!
+	 * @brief 获取字符串
+	 * @date 2019-09-11
+	*/
+	wstring& Str();
+
+	/*!
+	 * @brief 重载操作符
+	 * @date 2019-09-11
+	*/
+	bool operator==(const string& _Right);
+	bool operator==(const wstring& _Right);
+	bool operator==(const AString& _Right);
+	bool operator>(const string& _Right);
+	bool operator>(const wstring& _Right);
+	bool operator>(const AString& _Right);
+	bool operator<(const string& _Right);
+	bool operator<(const wstring& _Right);
+	bool operator<(const AString& _Right);
+	bool operator!=(const string& _Right);
+	bool operator!=(const wstring& _Right);
+	bool operator!=(const AString& _Right);
+	bool operator>=(const string& _Right);
+	bool operator>=(const wstring& _Right);
+	bool operator>=(const AString& _Right);
+	bool operator<=(const string& _Right);
+	bool operator<=(const wstring& _Right);
+	bool operator<=(const AString& _Right);
+	ostream& operator<<(ostream& _Ostr);
+	wostream& operator<<(wostream& _Ostr);
+	wistream& operator>>(wistream& _Istr);
+	istream& operator>>(istream& _Istr);
+	operator bool();
+	bool operator==(const bool& _Right);
 };
 
