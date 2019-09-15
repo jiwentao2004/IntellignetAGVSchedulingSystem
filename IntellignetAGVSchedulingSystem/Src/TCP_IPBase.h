@@ -10,6 +10,7 @@
 #include <WS2tcpip.h>
 #include <WinSock2.h>
 #include <WinDNS.h>
+#include "AString.h"
 
 #pragma comment(lib, "WS2_32")
 
@@ -64,8 +65,9 @@ protected:
 	/*!
 	 * @brief 创建套接字
 	 * @date 2019-09-15
+	 * @param ADDRESS_FAMILY 地址族/协议族
 	*/
-	SOCKET CreateSocket();
+	SOCKET CreateSocket(const ADDRESS_FAMILY sfamily);
 
 	/*!
 	 * @brief 绑定套接字

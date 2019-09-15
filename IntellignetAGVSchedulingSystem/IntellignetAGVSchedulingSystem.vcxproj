@@ -130,8 +130,8 @@
     <ClCompile Include="Src\AGVBase.cpp" />
     <ClCompile Include="Src\AGVType.cpp" />
     <ClCompile Include="Src\AString.cpp" />
-    <ClCompile Include="TCP_IPBase.cpp" />
-    <ClCompile Include="TCP_IPClient.cpp" />
+    <ClCompile Include="Src\TCP_IPBase.cpp" />
+    <ClCompile Include="Src\TCP_IPClient.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Include\json\allocator.h" />
@@ -150,8 +150,8 @@
     <ClInclude Include="Src\AGVEnum.h" />
     <ClInclude Include="Src\AGVType.h" />
     <ClInclude Include="Src\AString.h" />
-    <ClInclude Include="TCP_IPBase.h" />
-    <ClInclude Include="TCP_IPClient.h" />
+    <ClInclude Include="Src\TCP_IPBase.h" />
+    <ClInclude Include="Src\TCP_IPClient.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Include\json\json_valueiterator.inl" />

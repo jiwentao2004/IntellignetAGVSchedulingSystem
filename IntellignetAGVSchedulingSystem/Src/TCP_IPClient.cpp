@@ -13,7 +13,7 @@ TCP_IPClient::~TCP_IPClient()
 
 inline bool TCP_IPClient::Connect(const sockaddr& clienaddr, const sockaddr& srvaddr)
 {
-	m_sockTmp = CreateSocket();
+	m_sockTmp = CreateSocket(srvaddr.sa_family);
 
 	if (m_sockTmp == INVALID_SOCKET)
 	{
@@ -30,7 +30,7 @@ inline bool TCP_IPClient::Connect(const sockaddr& clienaddr, const sockaddr& srv
 
 inline bool TCP_IPClient::Connect(const sockaddr& srvaddr)
 {
-	m_sockTmp = CreateSocket();
+	m_sockTmp = CreateSocket(srvaddr.sa_family);
 
 	if (m_sockTmp == INVALID_SOCKET)
 	{
@@ -43,7 +43,7 @@ inline bool TCP_IPClient::Connect(const sockaddr& srvaddr)
 bool TCP_IPClient::ConnectServer(const sockaddr& srvaddr)
 {
 	// 连接服务器
-	if (connect(m_socket, & srvaddr, sizeof(srvaddr)) == SOCKET_ERROR)
+	if (connect(m_socket, &srvaddr, sizeof(srvaddr)) == SOCKET_ERROR)
 	{
 		WSACleanup();
 
@@ -131,4 +131,18 @@ bool TCP_IPClient::Connect(const SOCKET& sock)
 	m_socket = sock;
 
 	return true;
+}
+
+bool TCP_IPClient::Connect()
+{
+	if (m_sockaddrClnt.sa_family == AF_INET || m_sockaddrClnt.sa_family == AF_INET6)
+	{
+		return Connect(m_sockaddrClnt, m_sockaddrSrv);
+	}
+	else
+	{
+		return Connect(m_sockaddrSrv);
+	}
+
+	return false;
 }

@@ -42,7 +42,7 @@ private:
 
 private:
 	/*!
-	 * @brief 连接服务器
+	 * @brief 连接服务端
 	 *
 	 * 用以固定IP、端口的方式连接TCP服务端
 	 * @date 2019-09-15
@@ -53,7 +53,7 @@ private:
 	inline bool Connect(const sockaddr& clienaddr,const sockaddr& srvaddr);
 
 	/*!
-	 * @brief 连接服务器
+	 * @brief 连接服务端
 	 *
 	 * 用以随机端口的方式连接TCP服务端
 	 * @date 2019-09-15
@@ -63,7 +63,7 @@ private:
 	inline bool Connect(const sockaddr& srvaddr);
 
 	/*!
-	 * @brief 连接服务器
+	 * @brief 连接服务端
 	 * @date 2019-09-15
 	 * @param sockaddr 服务器地址
 	 * @return bool 连接成功返回true,否则返回false
@@ -86,5 +86,12 @@ public:
 	 * @return bool 连接成功返回true,否则返回false
 	*/
 	bool Connect(const SOCKET& sock);
+
+	/*!
+	 * @brief 连接服务端
+	 * @date 2019-09-15
+	 * @return bool 连接成功返回true,否则返回false
+	*/
+	bool Connect();
 };
 

@@ -39,10 +39,10 @@
     <ClCompile Include="Src\AString.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="TCP_IPBase.cpp">
+    <ClCompile Include="Src\TCP_IPBase.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="TCP_IPClient.cpp">
+    <ClCompile Include="Src\TCP_IPClient.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -95,10 +95,10 @@
     <ClInclude Include="Src\AString.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="TCP_IPBase.h">
+    <ClInclude Include="Src\TCP_IPBase.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="TCP_IPClient.h">
+    <ClInclude Include="Src\TCP_IPClient.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

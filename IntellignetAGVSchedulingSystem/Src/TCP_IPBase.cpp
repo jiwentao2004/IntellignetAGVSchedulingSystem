@@ -62,7 +62,7 @@ bool TCP_IPBase::InitWSA()
 	return true;
 }
 
-SOCKET TCP_IPBase::CreateSocket()
+SOCKET TCP_IPBase::CreateSocket(const ADDRESS_FAMILY sfamily)
 {
 	if (InitWSA() == false)
 	{
@@ -72,7 +72,7 @@ SOCKET TCP_IPBase::CreateSocket()
 	SOCKET sock = INVALID_SOCKET;
 
 	// ´´½¨Ì×½Ó×Ö
-	sock = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
+	sock = socket(sfamily, SOCK_STREAM, IPPROTO_TCP);
 
 	if (sock == INVALID_SOCKET)
 	{
