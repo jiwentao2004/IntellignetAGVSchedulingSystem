@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -76,7 +76,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>Default</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -130,6 +130,8 @@
     <ClCompile Include="Src\AGVBase.cpp" />
     <ClCompile Include="Src\AGVType.cpp" />
     <ClCompile Include="Src\AString.cpp" />
+    <ClCompile Include="TCP_IPBase.cpp" />
+    <ClCompile Include="TCP_IPClient.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Include\json\allocator.h" />
@@ -148,6 +150,8 @@
     <ClInclude Include="Src\AGVEnum.h" />
     <ClInclude Include="Src\AGVType.h" />
     <ClInclude Include="Src\AString.h" />
+    <ClInclude Include="TCP_IPBase.h" />
+    <ClInclude Include="TCP_IPClient.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Include\json\json_valueiterator.inl" />

@@ -39,6 +39,12 @@
     <ClCompile Include="Src\AString.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="TCP_IPBase.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TCP_IPClient.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Src\AGVBase.h">
@@ -87,6 +93,12 @@
       <Filter>头文件\Json</Filter>
     </ClInclude>
     <ClInclude Include="Src\AString.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TCP_IPBase.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TCP_IPClient.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

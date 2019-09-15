@@ -146,7 +146,7 @@ void AGVBase::LoadActNameFile(string strPath)
 	for (size_t k = 0; k < ArmArr.size(); ++k)
 	{
 		// »úÐµ±ÛÃû³Æ
-		Json::Value Arm = ArmArr[k];
+		Json::Value Arm = ArmArr[(int)k];
 
 		// AGV±àºÅ
 		int no = Json_ReadInt(Arm["No"]);

@@ -518,7 +518,6 @@ AString& AString::Format(const char* format, ...)
 
  AString& AString::Format(const wchar_t* format, ...)
 {
-	// TODO: 在此处插入 return 语句
 	 m_wstr = L"";
 
 	 va_list ap;

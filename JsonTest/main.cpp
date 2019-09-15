@@ -12,9 +12,12 @@ int main(int argv, char* argc[])
 
 	str.toDebug();
 
-	AString jsonStr = Json_ReadString(str.toJson()["Arm"][0]["3"]).c_str();
+	AString jsonStr = str.toJson()["Arm"][0]["3"].toStyledString().c_str();
 
 	jsonStr.toDebug();
+
+	printf(jsonStr.toJson().toStyledString().c_str());
+	printf("\n");
 
 	if (str)
 	{
